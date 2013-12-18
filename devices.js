@@ -6,7 +6,7 @@ module.exports = {
 		channels: ['1', '2', '3', '4']
 	},
 	'eurolite-led-bar': {
-		channels: ['ctrl', 'dimmer', 'strobe', 'red0', 'green0', 'blue0', 'red1', 'green1', 'blue1', 'red2', 'green2', 'blue2'],
+		channels: ['red1','green1','blue1','red2','green2','blue2','red3','green3','blue3','red4','green4','blue4','red5','green5','blue5','red6','green6','blue6','red7','green7','blue7','red8','green8','blue8','red9','green9','blue9','red10','green10','blue10','red11','green11','blue11','red12','green12','blue12','red13','green13','blue13','red14','green14','blue14','red15','green15','blue15','red16','green16','blue16'],
 		ranges: {
 			'ctrl': {
 				'type': 'option',
@@ -27,7 +27,7 @@ module.exports = {
 					{'value': 192, 'label': 'Multi flow'},
 					{'value': 208, 'label': 'Dream flow'},
 					{'value': 224, 'label': 'Two color flow'},
-					{'value': 240, 'label': 'Sound activity'}		
+					{'value': 240, 'label': 'Sound activity'}
 				]
 			},
 			'dimmer': {
@@ -51,4 +51,4 @@ module.exports = {
 			}
 		}
 	}
-}
+};
