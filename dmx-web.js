@@ -50,11 +50,21 @@ function DMXWeb() {
 
 	app.configure(function() {
 		app.use(connect.json())
-	})
+	});
 
 	app.get('/', function(req, res) {
 	  res.sendfile(__dirname + '/index.html')
-	})
+	});
+
+	app.post('/:universe', function (req, res) {
+		try {
+			var universe = dmx.universes[req.params.universe]
+			universe.update(req.body);
+		} catch(e) {
+			console.log(e)
+			res.json({"error": String(e)})
+		}
+	});
 
 	app.post('/animation/:universe', function(req, res) {
 		try {
@@ -81,7 +91,7 @@ function DMXWeb() {
 			console.log(e)
 			res.json({"error": String(e)})
 		}
-	})
+	});
 
 	io.sockets.on('connection', function(socket) {
 		socket.emit('init', {'devices': DMX.devices, 'setup': config})
@@ -103,7 +113,7 @@ function DMXWeb() {
 		dmx.on('update', function(universe, update) {
 		    socket.emit('update', universe, update)
 		})
-	})
+	});
 }
 
 DMXWeb()
