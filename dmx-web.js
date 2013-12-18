@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-"use strict"
+'use strict'
 
 var http     = require('http')
 var connect  = require('connect')
@@ -10,7 +10,7 @@ var DMX      = require('./dmx')
 var A        = DMX.Animation
 
 program
-	.version("0.0.1")
+	.version('0.0.1')
 	.option('-c, --config <file>', 'Read config from file [/etc/dmx-web.json]', '/etc/dmx-web.json')
 	.parse(process.argv)
 
@@ -60,9 +60,10 @@ function DMXWeb() {
 		try {
 			var universe = dmx.universes[req.params.universe]
 			universe.update(req.body);
+			res.json({'success': true});
 		} catch(e) {
 			console.log(e)
-			res.json({"error": String(e)})
+			res.json({'error': String(e)})
 		}
 	});
 
@@ -86,10 +87,10 @@ function DMXWeb() {
 			}
 			animation.add(old, 0)
 			animation.run(universe)
-			res.json({"success": true})
+			res.json({'success': true})
 		} catch(e) {
 			console.log(e)
-			res.json({"error": String(e)})
+			res.json({'error': String(e)})
 		}
 	});
 
